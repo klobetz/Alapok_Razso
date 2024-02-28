@@ -1,0 +1,32 @@
+﻿@page "/tennivalo"
+@rendermode InteractiveServer
+
+<h3>Tennivalok</h3>
+
+<div class="mt-4 mb-3">
+    <input @bind="newTodo" placeholder="következő elem" />
+    <button @onclick="AddTodo">Hozzáadás</button>    
+</div>
+
+<ul>
+    @foreach (var item in todos)
+    {
+        <li class="mt-1">
+            <input @bind="item.Title" />
+        </li>
+    }   
+</ul>
+
+
+
+
+@code {
+    private List<TodoItem> todos = new();
+    string newTodo = "";
+
+    private void AddTodo()
+    {
+        todos.Add(new TodoItem { Title = newTodo });
+        newTodo = string.Empty;     //ha lefutott akkor törölje az inputmező tartalmát
+    }
+}
