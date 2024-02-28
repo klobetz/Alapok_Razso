@@ -26,10 +26,18 @@
     <p>@text2</p>
 </div>
 
+<div class="mt-5">   
+    <p>A számláló: @szamolo</p>
+    <button class="btn btn-outline-primary" @onclick="lassu">Számol</button>
+</div>
+
+
 @code {
     string message = "";
     string text = "";
     string text2 = "";
+
+    public int szamolo { get; set; } = 1;    
 
     private void uzenet(ChangeEventArgs e)
     {
@@ -38,5 +46,11 @@
     private void Clear(MouseEventArgs e)
     {
         text2 = "";
+    }
+
+    private async Task lassu()
+    {
+        await Task.Delay(1000);
+        szamolo++;
     }
 }
