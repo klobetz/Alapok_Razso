@@ -1,0 +1,42 @@
+﻿@page "/ureslap"
+@rendermode InteractiveServer
+
+<h3>Üreslap</h3>
+
+<div class="mt-3">
+    <Counter Szamol10el="10" />
+</div>
+
+
+<div class="mt-5">
+    <input @onchange="uzenet"/>
+    <p>@message</p>
+</div>
+
+<div class="mt-5">    
+    <input @bind="text" />
+    <button @onclick="() => text = string.Empty">Clear</button>
+    <p>@text</p>
+</div>
+
+
+<div class="mt-5">
+    <input @bind="text2" @bind:event="oninput"/>
+    <button @onclick="Clear">Clear</button>
+    <p>@text2</p>
+</div>
+
+@code {
+    string message = "";
+    string text = "";
+    string text2 = "";
+
+    private void uzenet(ChangeEventArgs e)
+    {
+        message = (string)e.Value;
+    }
+    private void Clear(MouseEventArgs e)
+    {
+        text2 = "";
+    }
+}
