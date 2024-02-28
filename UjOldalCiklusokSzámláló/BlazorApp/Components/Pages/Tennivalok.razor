@@ -1,23 +1,26 @@
 ﻿@page "/tennivalo"
 @rendermode InteractiveServer
 
-<h3>Tennivalok</h3>
+<h3>Tennivalok: @todos.Count(x => !x.IsDone) darab </h3>
 
 <div class="mt-4 mb-3">
     <input @bind="newTodo" placeholder="következő elem" />
     <button @onclick="AddTodo">Hozzáadás</button>    
 </div>
 
+@{
+    <p>Elvézett teendők:  @todos.Count(x => x.IsDone) darab</p>
+}
+
 <ul>
     @foreach (var item in todos)
     {
-        <li class="mt-1">
+        <li class="mt-1 listaelem">
+            <input type="checkbox" @bind="item.IsDone"/>
             <input @bind="item.Title" />
         </li>
     }   
 </ul>
-
-
 
 
 @code {
@@ -26,7 +29,9 @@
 
     private void AddTodo()
     {
-        todos.Add(new TodoItem { Title = newTodo });
-        newTodo = string.Empty;     //ha lefutott akkor törölje az inputmező tartalmát
+        if (!string.IsNullOrWhiteSpace(newTodo)) {
+            todos.Add(new TodoItem { Title = newTodo });
+            newTodo = string.Empty;     //ha lefutott akkor törölje az inputmező tartalmát
+        }
     }
 }
