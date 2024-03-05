@@ -1,8 +1,10 @@
 ﻿@page "/home"
+@inject LoginItem Loginitem
+@rendermode InteractiveServer
 
 <PageTitle>Kezdőlap</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Üdvözöllek: @Loginitem.DefaultUser</h1>
 
-Welcome to your new app.
+a te felhasználó neved: @Loginitem.userName
 

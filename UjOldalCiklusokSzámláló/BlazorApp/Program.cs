@@ -1,10 +1,17 @@
 using BlazorApp.Components;
+using BlazorApp.Components.Pages;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+//az inject használatakor kell a service 
+builder.Services.AddScoped<LoginItem>();
+
+//bootsrap servise
+builder.Services.AddBlazorBootstrap();
 
 var app = builder.Build();
 

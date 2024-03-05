@@ -1,14 +1,36 @@
 ﻿@page "/"
 @layout Layout.MainLayoutEmpty
+@inject LoginItem Loginitem
+@rendermode InteractiveServer
 
 <div class="keret">    
     <div>
-        <h3>Üdvözöllek az oldalon</h3>
-        <div class="gomb">
+        <h3>Üdvözöllek az oldalon</h3>        
+        <div class="input-group-sm">
+            <input type="text" @bind="newUserName" placeholder="Username" />
+            <input type="password" placeholder="Password" />
+        </div>
+        <div class="gomb mt-2">
             <NavLink href="home">
-                <button class="btn btn-outline-primary">belépés</button>
+                <button class="btn btn-outline-primary" @onclick="AddLoginUser">belépés</button>
             </NavLink>
         </div>
     </div>      
 </div>
+
+@code{
+    string newUserName = "";
+
+    void AddLoginUser(){
+
+        if (!string.IsNullOrWhiteSpace(newUserName))
+        {
+            Loginitem.userName = newUserName;
+        }else
+        {
+            Loginitem.userName = "Default User";
+        }
+       
+    }
+}
 
