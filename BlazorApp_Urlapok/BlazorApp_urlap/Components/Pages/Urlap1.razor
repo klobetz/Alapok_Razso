@@ -1,0 +1,96 @@
+﻿@page "/urlap1"
+@rendermode InteractiveServer
+
+<h3>Űrlap1</h3>
+<hr />
+<div>    
+    <label for="vnev">Vezetéknév:</label><br />
+    <input type="text" id="vnev" @bind="newCustomer.FName" />
+</div>
+@* megjelenítem az adatot *@
+<p>@newCustomer.FName</p>
+
+<div>
+    <label for="knev">Vezetéknév:</label><br />
+    <input type="text" id="knev" @bind="newCustomer.LName" />
+</div>
+
+<div>
+    <label for="email">Vezetéknév:</label><br />
+    <input type="email" id="email" @bind="newCustomer.EMail" />
+</div>
+
+<div>
+    <label for="vnev">Vezetéknév:</label><br />
+    <input type="text" id="vnev" @bind="newCustomer.PhoneNmber" />
+</div>
+
+<div>
+    <label for="vnev">Vezetéknév:</label><br />
+    <input type="date" id="vnev" @bind="newCustomer.BirthDay" />
+</div>
+
+<div>
+    <label for="vnev">Vezetéknév:</label><br />
+    <input type="text" id="vnev" @bind="newCustomer.Country" />
+</div>
+
+<div>
+    <label for="vnev">Vezetéknév:</label><br />
+    <input type="text" id="vnev" @bind="newCustomer.City" />
+</div>
+
+<div>
+    <label for="vnev">Vezetéknév:</label><br />
+    <input type="number" id="vnev" @bind="newCustomer.Price" />
+</div>
+
+<div>
+    <button @onclick="ListahozAdd" type="button" class="mt-5">katt ide</button>
+    
+</div>
+
+<div class="col-md-6">
+    <table class="table table-bordered mt-4">
+        <thead>
+            <tr>
+                <th>Vezetéknév</th>
+                <th>Keresztnév</th>
+                <th>E-mail</th>
+                <th>Telefonszám</th>
+                <th>Születési dátum</th>
+                <th>Ár</th>
+            </tr>
+        </thead> 
+        <tbody>
+            @foreach (var customer in customerList)
+            {
+                <tr>
+                    <td>@customer.FName</td>
+                    <td>@customer.LName</td>
+                    <td>@customer.EMail</td>
+                    <td>@customer.PhoneNmber</td>
+                    <td>@customer.BirthDay.ToShortDateString()</td>
+                    <td>@customer.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    public CustomerItem newCustomer = new();
+    private List<CustomerItem> customerList = new();
+
+    private void Validalas()
+    {        
+
+        //nekem kell lekódolni a feltételeket
+    }
+
+    private void ListahozAdd()
+    {
+        customerList.Add(newCustomer);
+        newCustomer = new CustomerItem();
+    }
+}

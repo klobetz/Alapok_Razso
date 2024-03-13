@@ -1,0 +1,42 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">BlazorApp_urlap</a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="me-3" aria-hidden="true"><Icon Name="IconName.HouseDoor" Size="IconSize.x4" Color="IconColor.Info" /></span> Home
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="counter">
+                <span class="me-3" aria-hidden="true"><Icon Name="IconName.Plus" Size="IconSize.x4" Color="IconColor.Success" /></span> Counter
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="weather">
+                <span class="me-3" aria-hidden="true"><Icon Name="IconName.CloudLightningRainFill" Size="IconSize.x4" Color="IconColor.Secondary" /></span> Weather
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="urlap1">
+                <span class="me-3" aria-hidden="true"><Icon Name="IconName.ListCheck" Size="IconSize.x4" Color="IconColor.Light" /></span> Űrlap1
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="urlap2">
+                <span class="me-3" aria-hidden="true"><Icon Name="IconName.ListCheck" Size="IconSize.x4" Color="IconColor.Warning" /></span> Űrlap2
+            </NavLink>
+        </div>
+    </nav>
+</div>
+
