@@ -1,11 +1,34 @@
 ﻿@page "/urlap2"
+@rendermode InteractiveServer
 
 <h3>Űrlap2</h3>
 <hr />
 
+<div class="row">
+    <div class="col-md-6">
+        <EditForm method="post" Model="NewCustomer" FormName="create" OnValidSubmit="AddCustomer" Enhance>
+            <DataAnnotationsValidator/>
+
+            <div>
+                <label for="FName" class="form-label">Vezetéknév</label>
+                <InputText id="FName" @bind-Value="NewCustomer.FName" class="form-control"/>
+                <ValidationMessage For="()=>NewCustomer.FName" class="text-danger"/>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Küldés</button>
+        </EditForm>
+
+    </div>
+</div>
 
 
 
 @code {
-    
+    private CustomerItem NewCustomer = new();
+    private List<CustomerItem> custemetList = new();
+
+    private void AddCustomer()
+    {
+        
+    }
+
 }
