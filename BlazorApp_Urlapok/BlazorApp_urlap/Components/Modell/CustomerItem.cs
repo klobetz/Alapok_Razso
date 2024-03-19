@@ -7,7 +7,7 @@ namespace BlazorApp_urlap.Components.Modell
       
         public int Id { get; set; }
 
-        [Required (ErrorMessage ="A mezőt kötelező kitölteni")]
+        [Required (ErrorMessage = "A mezőt kötelező kitölteni")]
         public string? FName { get; set; }
         public string? LName { get; set; }
         public string? EMail { get; set; }

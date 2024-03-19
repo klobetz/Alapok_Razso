@@ -8,12 +8,58 @@
     <div class="col-md-6">
         <EditForm method="post" Model="NewCustomer" FormName="create" OnValidSubmit="AddCustomer" Enhance>
             <DataAnnotationsValidator/>
-
             <div>
                 <label for="FName" class="form-label">Vezetéknév</label>
                 <InputText id="FName" @bind-Value="NewCustomer.FName" class="form-control"/>
                 <ValidationMessage For="()=>NewCustomer.FName" class="text-danger"/>
             </div>
+
+            <div>
+                <label for="LName" class="form-label">Keresztnév</label>
+                <InputText id="LName" @bind-Value="NewCustomer.LName" class="form-control" />
+                <ValidationMessage For="()=>NewCustomer.LName" class="text-danger" />
+            </div>
+
+            <div>
+                <label for="EMail" class="form-label">E-mail</label>
+                <InputText id="EMail" @bind-Value="NewCustomer.EMail" class="form-control" />
+                <ValidationMessage For="()=>NewCustomer.EMail" class="text-danger" />
+            </div>
+
+
+            <div>
+                <label for="PhoneNmber" class="form-label">Telefonszám</label>
+                <InputText id="PhoneNmber" @bind-Value="NewCustomer.PhoneNmber" class="form-control" />
+                <ValidationMessage For="()=>NewCustomer.PhoneNmber" class="text-danger" />
+            </div>
+
+
+            <div>
+                <label for="BirthDay" class="form-label">Születési dátum</label>
+                <InputDate id="BirthDay" @bind-Value="NewCustomer.BirthDay" class="form-control" />
+                <ValidationMessage For="()=>NewCustomer.BirthDay" class="text-danger" />
+            </div>
+
+            <div>
+                <label for="Country" class="form-label">Ország</label>
+                <InputText id="Country" @bind-Value="NewCustomer.Country" class="form-control" />
+                <ValidationMessage For="()=>NewCustomer.Country" class="text-danger" />
+            </div>
+
+            <div>
+                <label for="City" class="form-label">Város</label>
+                <InputText id="City" @bind-Value="NewCustomer.City" class="form-control" />
+                <ValidationMessage For="()=>NewCustomer.City" class="text-danger" />
+            </div>
+
+            <div>
+                <label for="Price" class="form-label">Ár</label>
+                <InputNumber id="Price" @bind-Value="NewCustomer.Price" class="form-control" />
+                <ValidationMessage For="()=>NewCustomer.Price" class="text-danger" />
+            </div>
+
+
+
             <button type="submit" class="btn btn-primary mt-3">Küldés</button>
         </EditForm>
 
