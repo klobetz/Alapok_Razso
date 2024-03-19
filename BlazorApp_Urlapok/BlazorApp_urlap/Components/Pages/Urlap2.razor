@@ -62,17 +62,45 @@
         </EditForm>
 
     </div>
+    <div class="col-md-8">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Vezetéknév</th>
+                    <th>Keresztnév</th>
+                    <th>E-mail</th>
+                    <th>Telefonszám</th>
+                    <th>Születési dátum</th>
+                    <th>Ár</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in custemetList2)
+                {
+                    <tr>
+                        <th>@item.FName</th>
+                        <th>@item.LName</th>
+                        <th>@item.EMail</th>
+                        <th>@item.PhoneNmber</th>
+                        <th>@item.BirthDay</th>
+                        <th>@item.Price</th>
+                    </tr>
+                }
+            </tbody>            
+        </table>
+    </div>
 </div>
 
 
 
 @code {
     private CustomerItem NewCustomer = new();
-    private List<CustomerItem> custemetList = new();
+    private List<CustomerItem> custemetList2 = new();
 
     private void AddCustomer()
     {
-        
+        custemetList2.Add(NewCustomer);
+        NewCustomer = new CustomerItem();
     }
 
 }
