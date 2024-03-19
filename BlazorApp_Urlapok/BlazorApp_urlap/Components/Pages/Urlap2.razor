@@ -58,19 +58,19 @@
                 <ValidationMessage For="()=>NewCustomer.Price" class="text-danger" />
             </div>
 
-            <button type="submit" class="btn btn-primary mt-3">Küldés</button>
+            <button type="submit" class="btn btn-primary mt-3 mb-5">Küldés</button>
         </EditForm>
 
     </div>
-    <div class="col-md-8">
-        <table class="table table-bordered">
+    <div class="col-md-12">
+        <table class="table table-bordered mt-4">
             <thead>
                 <tr>
-                    <th>Vezetéknév</th>
-                    <th>Keresztnév</th>
+                    <th>Név</th>
                     <th>E-mail</th>
                     <th>Telefonszám</th>
                     <th>Születési dátum</th>
+                    <th>Életkor</th>
                     <th>Ár</th>                    
                 </tr>
             </thead>
@@ -78,12 +78,12 @@
                 @foreach (var item in custemetList2)
                 {
                     <tr>
-                        <th>@item.FName</th>
-                        <th>@item.LName</th>
-                        <th>@item.EMail</th>
-                        <th>@item.PhoneNmber</th>
-                        <th>@item.BirthDay</th>
-                        <th>@item.Price</th>
+                        <td>@item.GetFullname()</td>
+                        <td>@item.EMail</td>
+                        <td>@item.PhoneNmber</td>
+                        <td>@item.BirthDay.ToShortDateString()</td>
+                        <td>@item.Age()</td>
+                        <td>@item.Price</td>
                     </tr>
                 }
             </tbody>            

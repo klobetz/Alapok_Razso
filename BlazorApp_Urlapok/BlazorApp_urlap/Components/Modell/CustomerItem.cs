@@ -34,5 +34,28 @@ namespace BlazorApp_urlap.Components.Modell
         [Range(0, 100, ErrorMessage ="Az árat 0 és 100 között határozhatod meg")]
         public int Price { get; set; }
 
+        //teljes név megadása
+        public string GetFullname()
+        {
+            //return FName+" "+LName; //ez a hagyományos megközelítés
+            return $"{FName} {LName}"; //string interpoláció
+        }
+
+        //életkor kiszámítása
+        public int Age()
+        {
+            //évszámítás          
+            int age = DateTime.Now.Year - BirthDay.Year;
+
+            if (DateTime.Now.Month < BirthDay.Month || (DateTime.Now.Month == BirthDay.Month && DateTime.Now.Day < BirthDay.Day))
+            {
+                age--;
+            }
+            return age;
+            //return (int)DateTime.Now.Year-BirthDay.Year ;
+        }
+
+
+
     }
 }
