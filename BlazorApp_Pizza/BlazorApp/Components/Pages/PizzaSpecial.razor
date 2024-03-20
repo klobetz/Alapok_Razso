@@ -3,5 +3,18 @@
 <h3>PizzaSpecial</h3>
 
 @code {
+    List<PizzaSpec> pizzaLista = new();
 
+    protected override void OnInitialized()
+    {
+        pizzaLista.AddRange(new List<PizzaSpec>
+        {
+            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 15.52M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/bacon"},
+            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 18.42M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/meaty"},
+            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 12.91M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/salad"},
+            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 17.74M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/margherita"},
+            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 16.37M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/cheese"},
+            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 13.89M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/pepperoni"}
+        });
+    }
 }
