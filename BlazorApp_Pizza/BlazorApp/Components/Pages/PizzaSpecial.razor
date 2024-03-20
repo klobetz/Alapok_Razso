@@ -5,10 +5,17 @@
 @code {
     List<PizzaSpec> pizzaLista = new();
 
+    //A protected azt jelenti, hogy ez a metódus csak az adott osztályban vagy az abból származó leszármazott osztályokban hozzáférhető.
+    //override: Ez az utasítás jelzi, hogy ez a metódus egy ősosztály vagy interfész metódusát felülírja.
+    //Az "OnInitialized" gyakran olyan metódusok neve, amelyeket akkor hívunk meg, amikor egy objektum inicializálódik vagy egy adott életciklus esemény bekövetkezik.
+
     protected override void OnInitialized()
     {
         pizzaLista.AddRange(new List<PizzaSpec>
         {
+            // A "M" jelzés segítségével a fordító pontosan tudja, hogy a számot a decimal típusként értelmezze, és ne vegye alapul például egy double típusú számnak.
+            // A decimal típusú literálok "M" jelzéssel vannak ellátva a szám után, hogy egyértelművé tegyék a fordító számára, hogy melyik típust kell használni.
+            // Ez segít elkerülni a pontatlanságokat és hibákat, különösen pénzügyi számítások során.
             new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 15.52M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/bacon"},
             new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 18.42M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/meaty"},
             new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 12.91M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/salad"},
