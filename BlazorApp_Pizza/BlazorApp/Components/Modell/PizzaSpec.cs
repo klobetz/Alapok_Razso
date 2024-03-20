@@ -1,9 +1,13 @@
-﻿namespace BlazorApp.Components.Modell
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BlazorApp.Components.Modell
 {
     public class PizzaSpec
     {
         public int Id { get; set; }
         public string? Name { get; set; }
+
+        [Required]
         public decimal BasePrice { get; set; }
         public string? Description { get; set; }
         public string? ImageUrl { get; set; }
