@@ -1,0 +1,64 @@
+﻿.main {
+    flex-grow: 1;
+    overflow-y: auto;
+    background: linear-gradient(rgba(0,0,0,0) 40%, rgba(0, 0, 0) 80%);
+}
+
+.pizza-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20rem);
+    grid-gap: 2rem;
+    justify-content: center;
+    padding-left: 0;
+}
+
+    .pizza-cards > li {
+        list-style-type: none;
+        height: 10rem;
+        position: relative;
+        background-size: cover;
+        border-radius: 0.5rem;
+        box-shadow: 0 3px rgba(0,0,0,0.4);
+        transition: 0.1s ease-out;
+    }
+
+        .pizza-cards > li:has(:hover) {
+            transform: scale(1.02);
+        }
+
+.pizza-info {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background: linear-gradient(rgba(0,0,0,0.7) 30%, rgba(0, 0, 0, 0) 80%);
+    color: #fff;
+    padding: 1rem 1rem;
+    cursor: pointer;
+    line-height: 1.25rem;
+    border-radius: 0.5rem;
+}
+
+    .pizza-info .title {
+        color: white;
+        font-size: 1.4rem;
+        display: block;
+        margin: 0.2rem 0 0.4rem 0;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    }
+
+    .pizza-info .price {
+        position:absolute;
+        bottom: 0.5rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        border-radius: 4px;
+        background-color: #57a13a;
+        padding: 0.1rem 0.7rem;
+        color: white;
+    }
+
+    .price::before{
+        content:'€'
+    }
