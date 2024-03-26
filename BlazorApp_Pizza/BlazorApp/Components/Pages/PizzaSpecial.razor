@@ -1,6 +1,26 @@
 ﻿@page "/pizzaspecial"
+@using BlazorApp.Components.Modell
 
 <h3>PizzaSpecial</h3>
+
+<div class="main">
+    <ul class="pizza-cards">
+        @if (pizzaLista != null)
+        {
+            @foreach (var elem in pizzaLista)
+            {
+                <li style="background-image: url(@elem.ImageUrl)">
+                    <div class="pizza-info">
+                        <span class="title">@elem.Name</span>
+                        @elem.Description                        
+                       <span class="price">@elem.GetFormetBasePrice() </span>
+                    </div>
+                </li>
+            }
+        }        
+    </ul>
+</div>
+
 
 @code {
     List<PizzaSpec> pizzaLista = new();
@@ -16,12 +36,12 @@
             // A "M" jelzés segítségével a fordító pontosan tudja, hogy a számot a decimal típusként értelmezze, és ne vegye alapul például egy double típusú számnak.
             // A decimal típusú literálok "M" jelzéssel vannak ellátva a szám után, hogy egyértelművé tegyék a fordító számára, hogy melyik típust kell használni.
             // Ez segít elkerülni a pontatlanságokat és hibákat, különösen pénzügyi számítások során.
-            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 15.52M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/bacon"},
-            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 18.42M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/meaty"},
-            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 12.91M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/salad"},
-            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 17.74M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/margherita"},
-            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 16.37M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/cheese"},
-            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 13.89M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/pepperoni"}
+            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 15.52M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/bacon.jpg"},
+            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 18.42M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/meaty.jpg"},
+            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 12.91M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/salad.jpg"},
+            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 17.74M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/margherita.jpg"},
+            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 16.37M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/cheese.jpg"},
+            new PizzaSpec {Name = "Bacon-ös pizza", BasePrice = 13.89M, Description = "Ez egy bacon-ös óriási pizza", ImageUrl= "img/pizzas/pepperoni.jpg"}
         });
     }
 }
